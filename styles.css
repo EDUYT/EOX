@@ -1202,8 +1202,9 @@ h1 {
     linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.04)),
     #101d23;
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.35), inset 0 -4px 0 var(--mode-accent);
+  transform: translate3d(var(--object-x), var(--object-y), 0) rotateX(var(--object-rx)) rotateY(var(--object-ry)) rotateZ(var(--object-rz)) scale(var(--object-scale));
   transform-style: preserve-3d;
-  animation: eox-object-float 7s ease-in-out infinite;
+  transition: box-shadow 0.32s ease;
   will-change: transform;
 }
 
@@ -2082,16 +2083,6 @@ h1 {
   }
   50% {
     transform: translate3d(var(--object-x), calc(var(--object-y) - 8px), 0) rotateX(var(--object-rx)) rotateY(calc(var(--object-ry) + 88deg)) rotateZ(var(--object-rz)) scale(var(--object-scale));
-  }
-}
-
-@keyframes eox-object-float {
-  0%,
-  100% {
-    transform: translate3d(var(--object-x), var(--object-y), 0) rotateX(var(--object-rx)) rotateY(var(--object-ry)) rotateZ(var(--object-rz)) scale(var(--object-scale));
-  }
-  50% {
-    transform: translate3d(var(--object-x), calc(var(--object-y) - 12px), 0) rotateX(var(--object-rx)) rotateY(calc(var(--object-ry) + 6deg)) rotateZ(var(--object-rz)) scale(var(--object-scale));
   }
 }
 

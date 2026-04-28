@@ -232,6 +232,9 @@ const experienceControls = Array.from(document.querySelectorAll("[data-mode]"));
 const experienceRailSteps = Array.from(document.querySelectorAll("#experience-frame .scroll-rail span"));
 const panelTitle = document.querySelector("[data-panel-title]");
 const panelCopy = document.querySelector("[data-panel-copy]");
+const experienceObjectLabel = document.querySelector("[data-object-label]");
+const experienceObjectTitle = document.querySelector("[data-object-title]");
+const experienceObjectMeta = document.querySelector("[data-object-meta]");
 
 const isPointerInsideElement = (event, element) => {
   if (!element) return false;
@@ -257,6 +260,9 @@ const experienceDefaults = [
     border: "rgba(239, 63, 93, 0.42)",
     glow: "rgba(239, 63, 93, 0.32)",
     accent: "#ef3f5d",
+    objectLabel: "Carteira ativa",
+    objectTitle: "Conta pronta para ação",
+    objectMeta: "Follow-up registrado no histórico",
     rotate: -10
   },
   {
@@ -268,6 +274,9 @@ const experienceDefaults = [
     border: "rgba(37, 215, 195, 0.4)",
     glow: "rgba(37, 215, 195, 0.26)",
     accent: "#25d7c3",
+    objectLabel: "Chamada identificada",
+    objectTitle: "Atendimento com contexto",
+    objectMeta: "Registro salvo automaticamente",
     rotate: -2
   },
   {
@@ -279,6 +288,9 @@ const experienceDefaults = [
     border: "rgba(255, 189, 89, 0.42)",
     glow: "rgba(255, 189, 89, 0.24)",
     accent: "#ffbd59",
+    objectLabel: "Pedido sincronizado",
+    objectTitle: "ERP dentro da rotina",
+    objectMeta: "Cadastro e estoque atualizados",
     rotate: 6
   },
   {
@@ -290,6 +302,9 @@ const experienceDefaults = [
     border: "rgba(255, 255, 255, 0.28)",
     glow: "rgba(239, 63, 93, 0.24)",
     accent: "#f8fbfb",
+    objectLabel: "Indicador em tempo real",
+    objectTitle: "Prioridade clara para o time",
+    objectMeta: "Relatório pronto para decisão",
     rotate: 12
   }
 ];
@@ -316,6 +331,9 @@ const experienceStates = (experienceControls.length ? experienceControls : exper
     border: fromMarkup ? source.dataset.border || fallback.border : fallback.border,
     glow: fromMarkup ? source.dataset.glow || fallback.glow : fallback.glow,
     accent: fromMarkup ? source.dataset.accent || fallback.accent : fallback.accent,
+    objectLabel: fromMarkup ? source.dataset.objectLabel || fallback.objectLabel : fallback.objectLabel,
+    objectTitle: fromMarkup ? source.dataset.objectTitle || fallback.objectTitle : fallback.objectTitle,
+    objectMeta: fromMarkup ? source.dataset.objectMeta || fallback.objectMeta : fallback.objectMeta,
     rotate: fromMarkup ? readFiniteNumber(source.dataset.rotate, fallback.rotate) : fallback.rotate
   };
 });
@@ -369,6 +387,9 @@ const setExperienceState = (index, intent = "scroll") => {
 
   if (panelTitle) panelTitle.textContent = state.title;
   if (panelCopy) panelCopy.textContent = state.copy;
+  if (experienceObjectLabel) experienceObjectLabel.textContent = state.objectLabel;
+  if (experienceObjectTitle) experienceObjectTitle.textContent = state.objectTitle;
+  if (experienceObjectMeta) experienceObjectMeta.textContent = state.objectMeta;
 
   experienceControls.forEach((control) => {
     const isActive = control.dataset.mode === state.mode;
@@ -410,7 +431,6 @@ const renderExperienceFrame = () => {
   const steppedIndex = Math.round(progress * (experienceStates.length - 1));
   const chapterRaw = progress * Math.max(experienceStates.length - 1, 1);
   const chapterProgress = chapterRaw - Math.floor(chapterRaw);
-  const chapterEase = easeInOutCubic(chapterProgress);
 
   motionSection?.style.setProperty("--motion-progress", progress.toFixed(3));
   experienceFrame.style.setProperty("--experience-progress", progress.toFixed(3));
@@ -421,19 +441,20 @@ const renderExperienceFrame = () => {
   }
 
   const activeState = experienceStates[experienceIndex] ?? experienceStates[0];
+  const easedProgress = easeInOutCubic(progress);
   const surfaceWave = Math.sin(progress * Math.PI);
   experienceFrame.style.setProperty("--surface-y", `${lerp(16, -14, easeOutCubic(progress)).toFixed(2)}px`);
   experienceFrame.style.setProperty("--surface-scale", (0.985 + surfaceWave * 0.024).toFixed(3));
   experienceFrame.style.setProperty("--rail-y", `${lerp(12, -10, easeOutCubic(progress)).toFixed(2)}px`);
-  experienceFrame.style.setProperty("--object-x", `${lerp(-18, 18, chapterEase).toFixed(2)}px`);
-  experienceFrame.style.setProperty("--object-y", `${lerp(10, -8, surfaceWave).toFixed(2)}px`);
-  experienceFrame.style.setProperty("--object-rx", `${lerp(8, -6, progress).toFixed(2)}deg`);
+  experienceFrame.style.setProperty("--object-x", `${lerp(-8, 8, easedProgress).toFixed(2)}px`);
+  experienceFrame.style.setProperty("--object-y", `${lerp(8, -8, easedProgress).toFixed(2)}px`);
+  experienceFrame.style.setProperty("--object-rx", `${lerp(2.5, -2.5, easedProgress).toFixed(2)}deg`);
   experienceFrame.style.setProperty(
     "--object-ry",
-    `${(lerp(-28, 28, chapterEase) + (activeState.rotate ?? 0) * 0.35).toFixed(2)}deg`
+    `${(lerp(-6, 6, easedProgress) + (activeState.rotate ?? 0) * 0.18).toFixed(2)}deg`
   );
-  experienceFrame.style.setProperty("--object-rz", `${lerp(-2.5, 2.5, progress).toFixed(2)}deg`);
-  experienceFrame.style.setProperty("--object-scale", (0.98 + surfaceWave * 0.05).toFixed(3));
+  experienceFrame.style.setProperty("--object-rz", `${lerp(-0.8, 0.8, easedProgress).toFixed(2)}deg`);
+  experienceFrame.style.setProperty("--object-scale", (0.995 + surfaceWave * 0.012).toFixed(3));
 
   if (!motionOk) return;
 
@@ -441,9 +462,9 @@ const renderExperienceFrame = () => {
   const rotateZ = lerp(-7, 7, eased) + (activeState.rotate ?? 0) * 0.12;
   const rotateY = lerp(-11, 11, progress);
   const rotateX = lerp(5, -5.5, progress);
-  const lift = lerp(18, -18, surfaceWave);
+  const lift = lerp(12, -12, eased);
   const slide = lerp(-12, 12, eased);
-  const scale = 0.978 + surfaceWave * 0.032;
+  const scale = 0.985 + eased * 0.018;
 
   experienceFrame.style.transform = `perspective(1180px) translate3d(${slide.toFixed(2)}px, ${lift.toFixed(
     2
