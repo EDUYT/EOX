@@ -57,10 +57,12 @@ img {
 a {
   color: inherit;
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 button {
   font: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #spark-canvas,
@@ -2107,6 +2109,9 @@ h1 {
   .menu-toggle {
     position: relative;
     z-index: 2;
+    appearance: none;
+    -webkit-appearance: none;
+    flex: 0 0 auto;
     width: 44px;
     height: 44px;
     display: grid;
@@ -2115,6 +2120,12 @@ h1 {
     border-radius: 999px;
     color: var(--ink);
     background: rgba(255, 255, 255, 0.08);
+    touch-action: manipulation;
+    transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+  }
+
+  .menu-toggle:active {
+    transform: scale(0.96);
   }
 
   .menu-toggle span {
@@ -2132,11 +2143,13 @@ h1 {
     transform: translateY(4px);
   }
 
-  .menu-toggle[aria-expanded="true"] span:first-child {
+  .menu-toggle[aria-expanded="true"] span:first-child,
+  .menu-toggle[data-menu-state="closing"] span:first-child {
     transform: translateY(0) rotate(45deg);
   }
 
-  .menu-toggle[aria-expanded="true"] span:last-child {
+  .menu-toggle[aria-expanded="true"] span:last-child,
+  .menu-toggle[data-menu-state="closing"] span:last-child {
     transform: translateY(0) rotate(-45deg);
   }
 
@@ -2158,9 +2171,13 @@ h1 {
     background: rgba(8, 18, 22, 0.98);
     box-shadow: -28px 0 80px rgba(0, 0, 0, 0.42);
     transform: translateX(100%);
+    opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: transform 0.36s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.36s ease;
+    transition:
+      transform 0.36s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.14s ease,
+      visibility 0s linear 0.36s;
   }
 
   .site-nav a {
@@ -2176,8 +2193,13 @@ h1 {
 
   .site-nav.is-open {
     transform: translateX(0);
+    opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    transition:
+      transform 0.36s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.2s ease,
+      visibility 0s linear 0s;
   }
 
   .site-nav .nav-pill {
@@ -2760,6 +2782,24 @@ h1 {
   .statement {
     padding-top: 22px;
     padding-bottom: 22px;
+  }
+}
+
+@media (max-width: 640px) and (max-height: 680px) {
+  .site-nav {
+    gap: 6px;
+    padding: 84px 14px 18px;
+    font-size: 16px;
+  }
+
+  .site-nav a {
+    min-height: 42px;
+    padding-inline: 14px;
+  }
+
+  .site-nav .nav-pill {
+    min-height: 44px;
+    margin-top: 6px;
   }
 }
 

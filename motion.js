@@ -25,14 +25,92 @@ listenToMedia(motionQuery, () => {
 const topMenu = document.querySelector("#top-menu");
 const nav = document.querySelector("#site-nav");
 const menuToggle = document.querySelector("#menu-toggle");
+const brand = document.querySelector(".brand");
+const mainContent = document.querySelector("main");
+const siteFooter = document.querySelector(".site-footer");
 const mobileMenuQuery = window.matchMedia("(max-width: 1100px)");
 const cursorElements = document.querySelectorAll("#cursor-dot, #cursor-ring");
+let closeMenuTimer;
+let detachCloseTransition;
+
+const setElementInert = (element, isInert) => {
+  if (!element) return;
+  element.toggleAttribute("inert", isInert);
+  if (isInert) {
+    element.setAttribute("aria-hidden", "true");
+  } else {
+    element.removeAttribute("aria-hidden");
+  }
+};
+
+const setPageBehindMenuInert = (isInert) => {
+  setElementInert(brand, isInert);
+  setElementInert(mainContent, isInert);
+  setElementInert(siteFooter, isInert);
+};
+
+const getMenuFocusables = () =>
+  [menuToggle, ...(nav?.querySelectorAll("a[href], button:not([disabled])") ?? [])].filter(
+    (element) => element instanceof HTMLElement && !element.hidden && element.offsetParent !== null
+  );
+
+const finishMenuClose = () => {
+  window.clearTimeout(closeMenuTimer);
+  detachCloseTransition?.();
+  detachCloseTransition = undefined;
+  nav?.classList.remove("is-closing");
+  menuToggle?.removeAttribute("data-menu-state");
+  document.body.classList.remove("menu-open");
+  setPageBehindMenuInert(false);
+};
 
 const setMenuOpen = (isOpen) => {
-  nav?.classList.toggle("is-open", isOpen);
+  window.clearTimeout(closeMenuTimer);
+  detachCloseTransition?.();
+  detachCloseTransition = undefined;
+
+  const wasOpen = nav?.classList.contains("is-open") ?? false;
+
+  if (isOpen) {
+    nav?.classList.remove("is-closing");
+    nav?.classList.add("is-open");
+    menuToggle?.setAttribute("aria-expanded", "true");
+    menuToggle?.setAttribute("aria-label", "Fechar menu");
+    menuToggle?.setAttribute("data-menu-state", "open");
+    document.body.classList.add("menu-open");
+    setPageBehindMenuInert(true);
+
+    if (mobileMenuQuery.matches) {
+      window.requestAnimationFrame(() => {
+        nav?.querySelector("a")?.focus({ preventScroll: true });
+      });
+    }
+
+    return;
+  }
+
+  nav?.classList.remove("is-open");
   menuToggle?.setAttribute("aria-expanded", String(isOpen));
-  menuToggle?.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
-  document.body.classList.toggle("menu-open", isOpen);
+  menuToggle?.setAttribute("aria-label", "Abrir menu");
+
+  if (!wasOpen) {
+    finishMenuClose();
+    return;
+  }
+
+  nav?.classList.add("is-closing");
+  menuToggle?.setAttribute("data-menu-state", "closing");
+
+  const onCloseTransitionEnd = (event) => {
+    if (event.target !== nav || event.propertyName !== "transform") return;
+    finishMenuClose();
+  };
+
+  nav?.addEventListener("transitionend", onCloseTransitionEnd);
+  detachCloseTransition = () => {
+    nav?.removeEventListener("transitionend", onCloseTransitionEnd);
+  };
+  closeMenuTimer = window.setTimeout(finishMenuClose, 460);
 };
 
 const closeMenu = () => setMenuOpen(false);
@@ -59,7 +137,37 @@ nav?.querySelectorAll("a").forEach((link) => {
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeMenu();
+  if (event.key === "Escape") {
+    closeMenu();
+    menuToggle?.focus({ preventScroll: true });
+    return;
+  }
+
+  if (event.key !== "Tab" || !document.body.classList.contains("menu-open")) return;
+
+  const focusables = getMenuFocusables();
+  if (!focusables.length) return;
+
+  const first = focusables[0];
+  const last = focusables[focusables.length - 1];
+  const active = document.activeElement;
+
+  if (!focusables.includes(active)) {
+    event.preventDefault();
+    first.focus({ preventScroll: true });
+    return;
+  }
+
+  if (event.shiftKey && active === first) {
+    event.preventDefault();
+    last.focus({ preventScroll: true });
+    return;
+  }
+
+  if (!event.shiftKey && active === last) {
+    event.preventDefault();
+    first.focus({ preventScroll: true });
+  }
 });
 
 listenToMedia(mobileMenuQuery, (event) => {
