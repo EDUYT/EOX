@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EOX Tecnologia | CRM omnichannel para indústrias e distribuidoras</title>
+    <meta
+      name="description"
+      content="CRM omnichannel EOX para integrar relacionamento, telefonia, ERP e indicadores em uma operação comercial mais clara."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Titillium+Web:wght@300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      @media (max-width: 640px) {
+        #motion-title::before {
+          content: "A EOX conecta relacionamento, vendas e gestão.";
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="spark-canvas" aria-hidden="true"></canvas>
+    <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+    <header class="top-menu" id="top-menu">
+      <a class="brand" href="#inicio" aria-label="EOX Tecnologia">
+        <img src="./assets/eox-logo.png" alt="EOX Tecnologia" />
+      </a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="site-nav" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Navegação">
+        <a href="#inicio">Início</a>
+        <a href="#motion">Solução</a>
+        <a href="#modulos">Módulos</a>
+        <a href="#indicadores">Indicadores</a>
+        <a class="nav-pill magnet" href="#contato" data-padding="64" data-strength="6">
+          <span class="magnet-inner">Demonstração</span>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="grid-veil" aria-hidden="true"></div>
+        <p class="bg-word" aria-hidden="true">RELACIONAMENTO</p>
+
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span></span> EOX Tecnologia</p>
+          <h1 id="hero-title">CRM omnichannel para vender, atender e decidir com clareza.</h1>
+          <p>
+            Centralize dados de clientes, vendas, atendimento, telefonia, ERP e indicadores em uma operação comercial clara, rápida e integrada para indústrias e distribuidoras.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary magnet" href="#motion" data-padding="90" data-strength="7">
+              <span class="magnet-inner">Conhecer a solução</span>
+            </a>
+            <a class="btn ghost" href="#modulos">Ver módulos</a>
+          </div>
+        </div>
+
+        <div class="motion-stage reveal" aria-label="Dashboard EOX">
+          <div class="orbit-chip orbit-chip--one">ERP</div>
+          <div class="orbit-chip orbit-chip--two">Telefonia</div>
+          <div class="orbit-chip orbit-chip--three">SAC</div>
+
+          <div class="rings" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <article class="dashboard-card" id="dashboard-card">
+            <div class="dash-toolbar">
+              <i></i><i></i><i></i>
+              <strong>Pipeline EOX</strong>
+            </div>
+            <div class="dash-layout">
+              <aside>
+                <b>EOX</b>
+                <span class="hot"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </aside>
+              <div class="dash-content">
+                <div class="kpis">
+                  <article>
+                    <small>Conversão</small>
+                    <strong>32%</strong>
+                    <em></em>
+                  </article>
+                  <article>
+                    <small>SLA</small>
+                    <strong>94%</strong>
+                    <em></em>
+                  </article>
+                  <article>
+                    <small>Clientes</small>
+                    <strong>18k</strong>
+                    <em></em>
+                  </article>
+                </div>
+                <div class="chart-bars">
+                  <span style="--h: 52%"></span>
+                  <span style="--h: 80%"></span>
+                  <span style="--h: 42%"></span>
+                  <span style="--h: 92%"></span>
+                  <span style="--h: 62%"></span>
+                  <span style="--h: 70%"></span>
+                </div>
+                <div class="activity">
+                  <p><span></span> Ligação registrada no histórico do cliente</p>
+                  <p><span></span> Pedido sincronizado com o ERP</p>
+                  <p><span></span> Próximo contato agendado automaticamente</p>
+                </div>
+              </div>
+            </div>
+            <div class="shine" aria-hidden="true"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="statement">
+        <p>Vendas, atendimento e dados no mesmo fluxo para equipes que precisam agir com velocidade e controle.</p>
+      </section>
+
+      <section class="section" id="motion" aria-labelledby="motion-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span></span> Operação conectada</p>
+          <h2 class="float-title" id="motion-title">A EOX conecta relacionamento, vendas e gestão.</h2>
+        </div>
+        <div class="motion-grid" data-experience>
+          <article class="motion-card reveal experience-panel">
+            <small>Frente da operação</small>
+            <h3 data-panel-title>CRM que acompanha cada conta</h3>
+            <p data-panel-copy>
+              Carteira, histórico, oportunidades e próximas ações ficam no mesmo painel para o time agir sem perder contexto.
+            </p>
+            <div class="experience-modes" role="tablist" aria-label="Escolha uma frente da operação">
+              <button type="button" role="tab" data-mode="crm" data-title="CRM que acompanha cada conta" data-copy="Carteira, histórico, oportunidades e próximas ações ficam no mesmo painel para o time agir sem perder contexto." aria-controls="experience-frame" aria-selected="true">CRM</button>
+              <button type="button" role="tab" data-mode="telefonia" data-title="Telefonia com histórico completo" data-copy="Chamadas, registros e contexto comercial aparecem juntos para que cada atendimento comece com mais informação." aria-controls="experience-frame" aria-selected="false">Telefonia</button>
+              <button type="button" role="tab" data-mode="erp" data-title="ERP dentro do fluxo comercial" data-copy="Pedidos, cadastros e dados operacionais entram no CRM para reduzir troca de telas e retrabalho." aria-controls="experience-frame" aria-selected="false">ERP</button>
+              <button type="button" role="tab" data-mode="bi" data-title="BI para decisões mais claras" data-copy="Indicadores de produtividade, conversão e atendimento mostram prioridades e resultados com mais clareza." aria-controls="experience-frame" aria-selected="false">BI</button>
+            </div>
+          </article>
+
+          <article class="motion-card reveal" id="experience-frame" role="tabpanel" tabindex="0" aria-label="Painel da plataforma EOX">
+            <div class="experience-wipe" aria-hidden="true"></div>
+            <div class="experience-surface" aria-hidden="true">
+              <div class="experience-object">
+                <span>Cliente em atendimento</span>
+                <strong>Próximo passo recomendado</strong>
+                <em>Retorno comercial confirmado</em>
+              </div>
+              <div class="scroll-rail">
+                <span>Carteira</span>
+                <span>Contato</span>
+                <span>Pedido</span>
+                <span>Indicador</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="motion-card reveal experience-summary">
+            <small>Fluxo conectado</small>
+            <h3>Do contato ao resultado</h3>
+            <p>
+              CRM, telefonia, ERP e BI trabalham juntos para reduzir ruído operacional e acelerar decisões.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section dark-band" id="modulos" aria-labelledby="modulos-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span></span> Módulos conectados</p>
+          <h2 class="float-title" id="modulos-title">Módulos conectados para a rotina comercial.</h2>
+        </div>
+        <div class="bento-grid" id="bento-grid">
+          <article class="bento-card wide reveal">
+            <small>CRM</small>
+            <h3>Histórico completo do cliente</h3>
+            <p>Reúna informações comerciais, atendimentos e próximas ações em uma base de relacionamento consistente.</p>
+          </article>
+          <article class="bento-card reveal">
+            <small>Telefonia</small>
+            <h3>Chamadas com contexto</h3>
+            <p>Conecte registros, gravações e dados do cliente à rotina de atendimento.</p>
+          </article>
+          <article class="bento-card reveal">
+            <small>ERP</small>
+            <h3>Pedidos e cadastros conectados</h3>
+            <p>Leve informações essenciais do ERP para o fluxo de trabalho comercial.</p>
+          </article>
+          <article class="bento-card reveal">
+            <small>Fluxos</small>
+            <h3>Rotinas sem retrabalho</h3>
+            <p>Processos padronizados para campanhas, tarefas e acompanhamento comercial.</p>
+          </article>
+          <article class="bento-card wide reveal">
+            <small>BI</small>
+            <h3>Indicadores para decidir</h3>
+            <p>Acompanhe produtividade, conversão e qualidade do atendimento com relatórios claros.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section metrics" id="indicadores" aria-labelledby="indicadores-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span></span> Indicadores</p>
+          <h2 class="float-title" id="indicadores-title">Dados claros para decisões melhores.</h2>
+        </div>
+        <div class="metric-grid">
+          <article class="metric-card reveal">
+            <strong><span class="count" data-target="100">0</span>%</strong>
+            <p>da operação conectada em uma visão única.</p>
+          </article>
+          <article class="metric-card reveal">
+            <strong><span class="count" data-target="14">0</span>+</strong>
+            <p>módulos para vendas, atendimento e gestão.</p>
+          </article>
+          <article class="metric-card reveal">
+            <strong><span class="count" data-target="1">0</span></strong>
+            <p>base para vender, atender e acompanhar resultados.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section final-cta" id="contato" aria-labelledby="contato-title">
+        <div class="final-panel reveal">
+          <div>
+            <p class="eyebrow"><span></span> Na prática</p>
+            <h2 id="contato-title">Mais ritmo para vender, atender e acompanhar resultados.</h2>
+            <p>A EOX organiza relacionamento, atendimento e indicadores em uma rotina mais clara para o seu time.</p>
+          </div>
+          <a class="btn primary magnet" href="https://conteudo.eox.com.br/crm-para-industrias-e-distribuidores" data-padding="90" data-strength="7">
+            <span class="magnet-inner">Solicitar demonstração</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img src="./assets/eox-logo.png" alt="EOX Tecnologia" />
+      <span>EOX Tecnologia</span>
+    </footer>
+
+    <script src="./motion.js"></script>
+  </body>
+</html>
