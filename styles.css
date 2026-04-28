@@ -258,6 +258,13 @@ p {
   overflow-wrap: break-word;
 }
 
+h1,
+h2,
+h3 {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
 h1 {
   max-width: 650px;
   margin: 0;
@@ -316,6 +323,17 @@ h1 {
 .btn.ghost:hover {
   border-color: rgba(37, 215, 195, 0.5);
   transform: translateY(-2px);
+}
+
+.btn:focus-visible,
+.menu-toggle:focus-visible,
+.site-nav a:focus-visible {
+  outline: 2px solid var(--signal-soft);
+  outline-offset: 4px;
+}
+
+.menu-toggle:focus:not(:focus-visible) {
+  outline: none;
 }
 
 .magnet-inner {
