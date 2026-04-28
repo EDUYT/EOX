@@ -1,2 +1,0 @@
-# EOX
-SITE
