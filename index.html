@@ -15,13 +15,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
-    <style>
-      @media (max-width: 640px) {
-        #motion-title::before {
-          content: "A EOX conecta relacionamento, vendas e gestão.";
-        }
-      }
-    </style>
   </head>
   <body>
     <canvas id="spark-canvas" aria-hidden="true"></canvas>
@@ -37,9 +30,13 @@
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Navegação">
         <a href="#inicio">Início</a>
-        <a href="#motion">Solução</a>
+        <a href="#motion">Soluções</a>
         <a href="#modulos">Módulos</a>
-        <a href="#indicadores">Indicadores</a>
+        <a href="#sobre">Institucional</a>
+        <a href="#cases">Cases</a>
+        <a href="#blog">Blog</a>
+        <a href="#parcerias">Parcerias</a>
+        <a href="#contato">Contato</a>
         <a class="nav-pill magnet" href="#contato" data-padding="64" data-strength="6">
           <span class="magnet-inner">Demonstração</span>
         </a>
@@ -53,13 +50,13 @@
 
         <div class="hero-copy reveal">
           <p class="eyebrow"><span></span> EOX Tecnologia</p>
-          <h1 id="hero-title">CRM omnichannel para vender, atender e decidir com clareza.</h1>
+          <h1 id="hero-title">CRM feito para indústrias e distribuidoras venderem melhor.</h1>
           <p>
-            Centralize dados de clientes, vendas, atendimento, telefonia, ERP e indicadores em uma operação comercial clara, rápida e integrada para indústrias e distribuidoras.
+            Soluções omnichannel em vendas e atendimento para centralizar relacionamento, telefonia, ERP, indicadores e rotinas comerciais em uma visão 360 graus.
           </p>
           <div class="hero-actions">
             <a class="btn primary magnet" href="#motion" data-padding="90" data-strength="7">
-              <span class="magnet-inner">Conhecer a solução</span>
+              <span class="magnet-inner">Conhecer soluções</span>
             </a>
             <a class="btn ghost" href="#modulos">Ver módulos</a>
           </div>
@@ -128,13 +125,16 @@
       </section>
 
       <section class="statement">
-        <p>Vendas, atendimento e dados no mesmo fluxo para equipes que precisam agir com velocidade e controle.</p>
+        <p>Produtividade, performance de vendas e atendimento com informações centralizadas para decisões mais confiáveis.</p>
       </section>
 
       <section class="section" id="motion" aria-labelledby="motion-title">
         <div class="section-heading reveal">
-          <p class="eyebrow"><span></span> Operação conectada</p>
-          <h2 class="float-title" id="motion-title">A EOX conecta relacionamento, vendas e gestão.</h2>
+          <p class="eyebrow"><span></span> Soluções omnichannel</p>
+          <h2 class="float-title" id="motion-title">Visão 360 graus para não perder nenhum detalhe.</h2>
+          <p class="section-intro">
+            A plataforma EOX aumenta a produtividade e a performance graças à centralização de informações. Ela agiliza vendas, organiza atendimento e gera indicadores e relatórios confiáveis.
+          </p>
         </div>
         <div class="motion-grid" data-experience>
           <article class="motion-card reveal experience-panel">
@@ -147,7 +147,7 @@
               <button type="button" role="tab" data-mode="crm" data-title="CRM que acompanha cada conta" data-copy="Carteira, histórico, oportunidades e próximas ações ficam no mesmo painel para o time agir sem perder contexto." aria-controls="experience-frame" aria-selected="true">CRM</button>
               <button type="button" role="tab" data-mode="telefonia" data-title="Telefonia com histórico completo" data-copy="Chamadas, registros e contexto comercial aparecem juntos para que cada atendimento comece com mais informação." aria-controls="experience-frame" aria-selected="false">Telefonia</button>
               <button type="button" role="tab" data-mode="erp" data-title="ERP dentro do fluxo comercial" data-copy="Pedidos, cadastros e dados operacionais entram no CRM para reduzir troca de telas e retrabalho." aria-controls="experience-frame" aria-selected="false">ERP</button>
-              <button type="button" role="tab" data-mode="bi" data-title="BI para decisões mais claras" data-copy="Indicadores de produtividade, conversão e atendimento mostram prioridades e resultados com mais clareza." aria-controls="experience-frame" aria-selected="false">BI</button>
+              <button type="button" role="tab" data-mode="bi" data-title="Indicadores em tempo real" data-copy="Relatórios e indicadores individuais e por equipe mostram produtividade, desempenho, vendas e faturamento." aria-controls="experience-frame" aria-selected="false">BI</button>
             </div>
           </article>
 
@@ -172,7 +172,7 @@
             <small>Fluxo conectado</small>
             <h3>Do contato ao resultado</h3>
             <p>
-              CRM, telefonia, ERP e BI trabalham juntos para reduzir ruído operacional e acelerar decisões.
+              CRM, telefonia, ERP, campanhas, tarefas e relatórios trabalham juntos para reduzir ruído operacional e acelerar decisões.
             </p>
           </article>
         </div>
@@ -181,33 +181,56 @@
       <section class="section dark-band" id="modulos" aria-labelledby="modulos-title">
         <div class="section-heading reveal">
           <p class="eyebrow"><span></span> Módulos conectados</p>
-          <h2 class="float-title" id="modulos-title">Módulos conectados para a rotina comercial.</h2>
+          <h2 class="float-title" id="modulos-title">Recursos para vendas, atendimento e gestão.</h2>
+          <p class="section-intro">
+            A EOX reúne cadastro e histórico de clientes, telefonia, workflows, campanhas, e-mail, ERP, relatórios e rotinas de acompanhamento em uma operação integrada.
+          </p>
         </div>
         <div class="bento-grid" id="bento-grid">
           <article class="bento-card wide reveal">
             <small>CRM</small>
             <h3>Histórico completo do cliente</h3>
-            <p>Reúna informações comerciais, atendimentos e próximas ações em uma base de relacionamento consistente.</p>
+            <p>Informações de contato, leads, oportunidades e todo o histórico de atendimento em um único lugar.</p>
           </article>
           <article class="bento-card reveal">
             <small>Telefonia</small>
             <h3>Chamadas com contexto</h3>
-            <p>Conecte registros, gravações e dados do cliente à rotina de atendimento.</p>
+            <p>Integração com telefonia, gravação de chamadas e registros ligados ao relacionamento.</p>
           </article>
           <article class="bento-card reveal">
             <small>ERP</small>
             <h3>Pedidos e cadastros conectados</h3>
-            <p>Leve informações essenciais do ERP para o fluxo de trabalho comercial.</p>
+            <p>Dados de vendas, fiscais, estoque e pós-venda compartilhados com a rotina comercial.</p>
           </article>
           <article class="bento-card reveal">
-            <small>Fluxos</small>
-            <h3>Rotinas sem retrabalho</h3>
-            <p>Processos padronizados para campanhas, tarefas e acompanhamento comercial.</p>
+            <small>Workflows</small>
+            <h3>Fluxos automáticos</h3>
+            <p>Tarefas, e-mails, ligações automáticas e próximo cliente a contatar no fluxo certo.</p>
+          </article>
+          <article class="bento-card reveal">
+            <small>Campanhas</small>
+            <h3>Giro de carteiras</h3>
+            <p>Crie campanhas segmentadas, classifique clientes por recência, frequência e valor de compra.</p>
+          </article>
+          <article class="bento-card reveal">
+            <small>Monitoramento</small>
+            <h3>Tempo real</h3>
+            <p>Acompanhe desempenho, vendas, faturamento, atendimento e produtividade por equipe.</p>
+          </article>
+          <article class="bento-card reveal">
+            <small>Nuvem</small>
+            <h3>Operação disponível</h3>
+            <p>Central telefônica híbrida, armazenamento na nuvem e atendimento mobile para o dia a dia.</p>
+          </article>
+          <article class="bento-card reveal">
+            <small>Tarefas</small>
+            <h3>Agenda e continuidade</h3>
+            <p>Crie tarefas, lembretes de contato e rotinas para manter o relacionamento em movimento.</p>
           </article>
           <article class="bento-card wide reveal">
-            <small>BI</small>
+            <small>Relatórios</small>
             <h3>Indicadores para decidir</h3>
-            <p>Acompanhe produtividade, conversão e qualidade do atendimento com relatórios claros.</p>
+            <p>Relatórios de vendas, produtividade e atendimento baseados nos dados da própria empresa.</p>
           </article>
         </div>
       </section>
@@ -216,19 +239,179 @@
         <div class="section-heading reveal">
           <p class="eyebrow"><span></span> Indicadores</p>
           <h2 class="float-title" id="indicadores-title">Dados claros para decisões melhores.</h2>
+          <p class="section-intro">
+            Relatórios confiáveis e indicadores em tempo real ajudam gestores a enxergar produtividade, oportunidades e gargalos da operação.
+          </p>
         </div>
         <div class="metric-grid">
           <article class="metric-card reveal">
-            <strong><span class="count" data-target="100">0</span>%</strong>
-            <p>da operação conectada em uma visão única.</p>
+            <strong><span class="count" data-target="360">0</span>º</strong>
+            <p>de visão sobre clientes, contatos, vendas, tarefas e histórico.</p>
           </article>
           <article class="metric-card reveal">
             <strong><span class="count" data-target="14">0</span>+</strong>
-            <p>módulos para vendas, atendimento e gestão.</p>
+            <p>recursos para vendas, atendimento, telefonia, ERP e gestão.</p>
           </article>
           <article class="metric-card reveal">
             <strong><span class="count" data-target="1">0</span></strong>
-            <p>base para vender, atender e acompanhar resultados.</p>
+            <p>base integrada para vender, atender e acompanhar resultados.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section about-section" id="sobre" aria-labelledby="sobre-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span></span> Institucional</p>
+          <h2 class="float-title" id="sobre-title">A EOX nasceu para entregar tecnologia próxima do cliente.</h2>
+          <p class="section-intro">
+            Desde 2004, a EOX desenvolve soluções de telefonia, CRM e atendimento para empresas que precisam de tecnologia de qualidade, projetos sob medida e proximidade na implantação.
+          </p>
+        </div>
+
+        <div class="about-layout">
+          <article class="about-copy reveal">
+            <small>Consultoria</small>
+            <h3>Projetos personalizados para cada operação</h3>
+            <p>
+              A equipe entende processos de vendas, atendimento e relacionamento para configurar soluções que se adaptam à realidade da empresa.
+            </p>
+          </article>
+
+          <div class="value-grid">
+            <article class="value-card reveal">
+              <small>Missão</small>
+              <p>Oferecer excelência em soluções tecnológicas integradas de gestão do relacionamento com o cliente.</p>
+            </article>
+            <article class="value-card reveal">
+              <small>Visão</small>
+              <p>Ser referência no segmento, inspirando inovação e promovendo a otimização dos resultados dos clientes.</p>
+            </article>
+            <article class="value-card reveal">
+              <small>Atuação</small>
+              <p>Indústrias, distribuidoras, serviços, saúde, telecom, serviços financeiros e operações B2B.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="differential-grid" id="diferenciais" aria-label="Diferenciais da EOX">
+          <article class="differential-card reveal">
+            <strong>Consultoria</strong>
+            <span>Entendimento da necessidade do cliente antes da implantação.</span>
+          </article>
+          <article class="differential-card reveal">
+            <strong>Projeto personalizado</strong>
+            <span>Solução customizável com módulos ajustados à operação.</span>
+          </article>
+          <article class="differential-card reveal">
+            <strong>Know-how</strong>
+            <span>Expertise em CRM, telefonia e processos de vendas.</span>
+          </article>
+          <article class="differential-card reveal">
+            <strong>Integrações</strong>
+            <span>Telefonia e ERP conectados ao relacionamento.</span>
+          </article>
+          <article class="differential-card reveal">
+            <strong>Suporte técnico</strong>
+            <span>Equipe especializada para apoiar a evolução do projeto.</span>
+          </article>
+          <article class="differential-card reveal">
+            <strong>Software próprio</strong>
+            <span>Fábrica interna para evolução e melhoria contínua.</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section dark-band stories-section" id="cases" aria-labelledby="cases-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span></span> Cases de sucesso</p>
+          <h2 class="float-title" id="cases-title">Resultados reais em vendas, atendimento e call center.</h2>
+          <p class="section-intro">
+            Histórias publicadas pela EOX mostram reativação de clientes, atendimento mais eficiente, soluções customizáveis e gestão prática de call center.
+          </p>
+        </div>
+        <div class="story-grid">
+          <a class="story-card reveal" href="https://www.eox.com.br/cases/case-fati-ferramentas/" target="_blank" rel="noopener">
+            <small>Fati Ferramentas</small>
+            <h3>Sucesso na reativação de clientes</h3>
+            <p>Aumento de vendas e redução da inativação com telefonia e CRM integrados.</p>
+          </a>
+          <a class="story-card reveal" href="https://www.eox.com.br/cases/cadence-eletrodomesticos/" target="_blank" rel="noopener">
+            <small>Atendimento</small>
+            <h3>Eficácia na resolução de problemas</h3>
+            <p>Gestão do atendimento para reduzir tempo ocioso e dar visibilidade ao time.</p>
+          </a>
+          <a class="story-card reveal" href="https://www.eox.com.br/cases/brandili-textil/" target="_blank" rel="noopener">
+            <small>Customização</small>
+            <h3>Soluções completamente customizáveis</h3>
+            <p>Recursos ajustados para encaixar tecnologia no processo do cliente.</p>
+          </a>
+          <a class="story-card reveal" href="https://www.eox.com.br/cases/ecomax-diagnostico-por-imagem/" target="_blank" rel="noopener">
+            <small>Call center</small>
+            <h3>Praticidade na gestão da operação</h3>
+            <p>Relatórios para acompanhar agentes ociosos e produtividade.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section blog-section" id="blog" aria-labelledby="blog-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span></span> Blog</p>
+          <h2 class="float-title" id="blog-title">Conteúdos para gestão comercial B2B.</h2>
+          <p class="section-intro">
+            Artigos recentes da EOX sobre carteira de clientes, CRM, atendimento, vendas e operação comercial.
+          </p>
+        </div>
+        <div class="blog-list">
+          <a class="blog-item reveal" href="https://www.eox.com.br/crm/crm-para-vendas-4/" target="_blank" rel="noopener">
+            <span>Vendas</span>
+            <strong>Aumente o ticket médio no atacado com gestão de mix</strong>
+          </a>
+          <a class="blog-item reveal" href="https://www.eox.com.br/crm/crm-na-producao-industrial/" target="_blank" rel="noopener">
+            <span>Indústria</span>
+            <strong>CRM na produção industrial: como evitar gargalos na operação</strong>
+          </a>
+          <a class="blog-item reveal" href="https://www.eox.com.br/vendas/sua-empresa-depende-de-planilhas/" target="_blank" rel="noopener">
+            <span>Gestão</span>
+            <strong>Sua empresa ainda depende de planilhas? O custo real de operar no escuro</strong>
+          </a>
+          <a class="blog-item reveal" href="https://www.eox.com.br/relacionamento/crm-para-clientes-inativos/" target="_blank" rel="noopener">
+            <span>Relacionamento</span>
+            <strong>Churn na indústria: como usar o CRM para prever a inatividade</strong>
+          </a>
+        </div>
+      </section>
+
+      <section class="section partner-section" id="parcerias" aria-labelledby="parcerias-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span></span> Parcerias</p>
+          <h2 class="float-title" id="parcerias-title">Programa para quem leva tecnologia ao cliente.</h2>
+          <p class="section-intro">
+            Consultores de negócios, distribuidores de telecom, representantes comerciais e fornecedores de TI podem agregar soluções EOX ao portfólio.
+          </p>
+        </div>
+        <div class="partner-layout">
+          <article class="partner-card reveal">
+            <small>Quem pode ser parceiro</small>
+            <ul>
+              <li>Consultores de negócios</li>
+              <li>Distribuidores de Telecom</li>
+              <li>Representantes comerciais</li>
+              <li>Fornecedores de soluções de TI</li>
+            </ul>
+          </article>
+          <article class="partner-card reveal">
+            <small>Por que ser parceiro</small>
+            <ul>
+              <li>Variedade para atender diversos segmentos</li>
+              <li>Remunerações atrativas</li>
+              <li>Valor agregado ao portfólio</li>
+              <li>Apoio às vendas com materiais de marketing</li>
+            </ul>
+          </article>
+          <article class="partner-cta reveal">
+            <h3>Quer ser parceiro da EOX?</h3>
+            <p>O primeiro passo é preencher o formulário e aguardar o contato da equipe.</p>
+            <a class="btn primary" href="https://www.eox.com.br/parcerias/#formulario-parceiro" target="_blank" rel="noopener">Quero ser parceiro</a>
           </article>
         </div>
       </section>
@@ -236,20 +419,49 @@
       <section class="section final-cta" id="contato" aria-labelledby="contato-title">
         <div class="final-panel reveal">
           <div>
-            <p class="eyebrow"><span></span> Na prática</p>
-            <h2 id="contato-title">Mais ritmo para vender, atender e acompanhar resultados.</h2>
-            <p>A EOX organiza relacionamento, atendimento e indicadores em uma rotina mais clara para o seu time.</p>
+            <p class="eyebrow"><span></span> Contato</p>
+            <h2 id="contato-title">Fale com a EOX para conhecer a solução.</h2>
+            <p>Comercial, parcerias, vagas e canais de relacionamento reunidos para facilitar o próximo passo.</p>
+            <div class="contact-grid" aria-label="Canais de contato">
+              <a href="mailto:comercial@eox.com.br"><strong>Comercial</strong><span>comercial@eox.com.br</span></a>
+              <a href="tel:+554131537200"><strong>Telefone</strong><span>(41) 3153-7200</span></a>
+              <a href="mailto:financeiro@eox.com.br"><strong>Financeiro</strong><span>financeiro@eox.com.br</span></a>
+              <a href="mailto:ouvidoria@eox.com.br"><strong>Ouvidoria</strong><span>ouvidoria@eox.com.br</span></a>
+              <a href="https://eoxtecnologia.enlizt.me/" target="_blank" rel="noopener"><strong>Vagas</strong><span>Trabalhe conosco</span></a>
+              <a href="https://www.google.com/search?q=R.%20Francisco%20Margarida%2C%2068%20-%20Itoupava%20Norte%2C%20Blumenau%20-%20SC%2C%2089052-080" target="_blank" rel="noopener"><strong>Endereço</strong><span>Rua Francisco Margarida, 68 - Blumenau - SC</span></a>
+            </div>
           </div>
-          <a class="btn primary magnet" href="https://conteudo.eox.com.br/crm-para-industrias-e-distribuidores" data-padding="90" data-strength="7">
-            <span class="magnet-inner">Solicitar demonstração</span>
-          </a>
+          <div class="cta-stack">
+            <a class="btn primary magnet" href="https://conteudo.eox.com.br/crm-para-industrias-e-distribuidores" data-padding="90" data-strength="7">
+              <span class="magnet-inner">Solicitar demonstração</span>
+            </a>
+            <a class="btn ghost" href="https://api.whatsapp.com/send?phone=554131537200&text=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20servi%C3%A7os%20da%20EOX%20Tecnologia." target="_blank" rel="noopener">WhatsApp</a>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <img src="./assets/eox-logo.png" alt="EOX Tecnologia" />
-      <span>EOX Tecnologia</span>
+      <div class="footer-brand">
+        <img src="./assets/eox-logo.png" alt="EOX Tecnologia" />
+        <span>EOX Tecnologia</span>
+      </div>
+      <div class="footer-links" aria-label="Links do rodapé">
+        <a href="#inicio">Início</a>
+        <a href="#motion">Soluções</a>
+        <a href="#sobre">Sobre a EOX</a>
+        <a href="#cases">Cases</a>
+        <a href="#blog">Blog</a>
+        <a href="#parcerias">Parcerias</a>
+        <a href="#contato">Contato</a>
+        <a href="https://www.eox.com.br/protecao-de-dados/" target="_blank" rel="noopener">LGPD</a>
+        <a href="https://www.eox.com.br/politica-de-privacidade/" target="_blank" rel="noopener">Privacidade</a>
+        <a href="https://www.eox.com.br/melhores-praticas-para-implantacao/" target="_blank" rel="noopener">Melhores práticas</a>
+        <a href="https://www.eox.com.br/contrato-de-adesao-vocallcenter/" target="_blank" rel="noopener">Contrato</a>
+        <a href="https://www.eox.com.br/cenario-tecnico-vocallcontact-cloud-vocallcenter-cloud/" target="_blank" rel="noopener">Cenário técnico</a>
+        <a href="https://www.linkedin.com/company/eox-tecnologia/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.facebook.com/eoxtecnologia" target="_blank" rel="noopener">Facebook</a>
+      </div>
     </footer>
 
     <script src="./motion.js"></script>

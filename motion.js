@@ -8,22 +8,30 @@ const lerp = (from, to, progress) => from + (to - from) * progress;
 const easeOutCubic = (value) => 1 - Math.pow(1 - value, 3);
 const easeInOutCubic = (value) =>
   value < 0.5 ? 4 * value * value * value : 1 - Math.pow(-2 * value + 2, 3) / 2;
+const listenToMedia = (query, listener) => {
+  if (typeof query.addEventListener === "function") {
+    query.addEventListener("change", listener);
+    return;
+  }
+  query.addListener(listener);
+};
 
 document.documentElement.classList.toggle("reduced-motion", !motionOk);
 
-motionQuery.addEventListener("change", () => {
+listenToMedia(motionQuery, () => {
   window.location.reload();
 });
 
 const topMenu = document.querySelector("#top-menu");
 const nav = document.querySelector("#site-nav");
 const menuToggle = document.querySelector("#menu-toggle");
-const mobileMenuQuery = window.matchMedia("(max-width: 980px)");
+const mobileMenuQuery = window.matchMedia("(max-width: 1100px)");
 const cursorElements = document.querySelectorAll("#cursor-dot, #cursor-ring");
 
 const setMenuOpen = (isOpen) => {
   nav?.classList.toggle("is-open", isOpen);
   menuToggle?.setAttribute("aria-expanded", String(isOpen));
+  menuToggle?.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
   document.body.classList.toggle("menu-open", isOpen);
 };
 
@@ -50,7 +58,11 @@ nav?.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", closeMenu);
 });
 
-mobileMenuQuery.addEventListener("change", (event) => {
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeMenu();
+});
+
+listenToMedia(mobileMenuQuery, (event) => {
   if (!event.matches) closeMenu();
 });
 
@@ -485,7 +497,7 @@ if (motionOk && (heroStage || statement || bentoCards.length || metricCards.leng
   requestPremiumScroll();
   window.addEventListener("scroll", requestPremiumScroll, { passive: true });
   window.addEventListener("resize", requestPremiumScroll);
-  mobileMenuQuery.addEventListener("change", requestPremiumScroll);
+  listenToMedia(mobileMenuQuery, requestPremiumScroll);
 }
 
 if (motionOk && pointerOk) {
@@ -630,7 +642,7 @@ if (motionOk && pointerOk) {
   });
 }
 
-if (motionOk) {
+if (motionOk && pointerOk) {
   const canvas = document.querySelector("#spark-canvas");
   const ctx = canvas?.getContext("2d");
   const sparks = [];
